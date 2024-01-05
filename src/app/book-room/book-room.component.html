@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Room Details</title>
+</head>
+<body>
+
+<table border="1">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Room Type</th>
+            <th>Bed Number</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>availability</th>
+        </tr>
+    </thead>
+    <tbody *ngFor="let room of room_details">
+        <tr>
+            <td>{{room.id}}</td>
+            <td>{{room.roomType}}</td>
+            <td>{{room.bedNo}}</td>
+            <td>{{room.description}}</td>
+            <td>{{room.price}}</td>
+            <td><button [routerLink]="['/home', room.id]"  [disabled]="room.mode === 'unavailable'">{{room.mode}}</button></td>
+        </tr>
+        
+    </tbody>
+</table>
+<button [routerLink]="['/home']">home</button>
+</body>
+</html>
